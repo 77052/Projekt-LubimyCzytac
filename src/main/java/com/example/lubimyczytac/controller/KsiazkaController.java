@@ -24,7 +24,7 @@ public class KsiazkaController {
         return service.pobierzWszystkieKsiazki();
     }
 
-    // Pobierz jedną książkę po ID
+    // Pobierz jedną książkę po identyfikatorze książki: idKsiazki
     @GetMapping("/{idKsiazki}")
     public Ksiazka pobierzKsiazke(@PathVariable Long idKsiazki) {
         return service.pobierzKsiazke(idKsiazki);
@@ -45,7 +45,7 @@ public class KsiazkaController {
         return service.edytujKsiazke(idKsiazki, ksiazka);
     }
 
-    // Usuń książkę
+    // Usuń książkę po identyfikatorze książki: idKsiazki 
     @DeleteMapping("/{idKsiazki}")
     public void usunKsiazke(@PathVariable Long idKsiazki) {
         service.usunKsiazke(idKsiazki);
