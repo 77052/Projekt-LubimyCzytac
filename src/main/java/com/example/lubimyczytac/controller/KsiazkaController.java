@@ -33,7 +33,13 @@ public class KsiazkaController {
 
     // Dodaj książkę
     @PostMapping
-    public Ksiazka dodajKsiazke(@Valid @RequestBody Ksiazka ksiazka) {
+    public Object dodajKsiazke(@Valid @RequestBody Ksiazka ksiazka,
+                               org.springframework.validation.BindingResult result) {
+
+        if (result.hasErrors()) {
+            return result.getFieldError().getDefaultMessage();
+        }
+
         return service.dodajKsiazke(ksiazka);
     }
 
