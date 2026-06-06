@@ -44,8 +44,8 @@ async function zapiszKsiazke() {
     });
 
     if (!odp.ok) {
-        const blad = await odp.json();
-        alert("Błąd: " + JSON.stringify(blad));
+        const blad = await odp.text();
+        alert(blad);
         return;
     } else {
 		alert("Książka została zapisana");
