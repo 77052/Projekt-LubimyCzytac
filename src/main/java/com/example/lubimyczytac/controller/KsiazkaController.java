@@ -2,6 +2,7 @@ package com.example.lubimyczytac.controller;
 
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
 import com.example.lubimyczytac.model.Ksiazka;
 import com.example.lubimyczytac.service.KsiazkaService;
 
