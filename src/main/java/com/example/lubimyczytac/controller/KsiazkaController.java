@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.http.ResponseEntity;
 import com.example.lubimyczytac.model.Ksiazka;
 import com.example.lubimyczytac.service.KsiazkaService;
+import org.springframework.validation.BindingResult;
 
 import java.util.List;
 
@@ -34,15 +35,17 @@ public class KsiazkaController {
 
     // Dodaj książkę
     @PostMapping
-    public Object dodajKsiazke(@Valid @RequestBody Ksiazka ksiazka,
-                               org.springframework.validation.BindingResult result) {
+    public ResponseEntity<?> dodajKsiazke(
+            @Valid @RequestBody Ksiazka ksiazka,
+            BindingResult result) {
 
         if (result.hasErrors()) {
-            return ResponseEntity.badRequest()
+            return ResponseEntity
+                    .badRequest()
                     .body(result.getFieldError().getDefaultMessage());
         }
 
-        return service.dodajKsiazke(ksiazka);
+        return ResponseEntity.ok(service.dodajKsiazke(ksiazka));
     }
 
     // Edytuj książkę po identyfikatorze książki: idKsiazki
