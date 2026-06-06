@@ -37,7 +37,8 @@ public class KsiazkaController {
                                org.springframework.validation.BindingResult result) {
 
         if (result.hasErrors()) {
-            return result.getFieldError().getDefaultMessage();
+            return ResponseEntity.badRequest()
+                    .body(result.getFieldError().getDefaultMessage());
         }
 
         return service.dodajKsiazke(ksiazka);
