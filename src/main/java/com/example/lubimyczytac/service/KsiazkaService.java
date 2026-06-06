@@ -29,6 +29,8 @@ public class KsiazkaService {
 
     // Dodaj książkę
     public Ksiazka dodajKsiazke(Ksiazka ksiazka) {
+        ksiazka.setTytul(duzaLitera(ksiazka.getTytul()));
+        ksiazka.setAutor(duzaLitera(ksiazka.getAutor()));
         return repository.save(ksiazka);
     }
 
@@ -38,8 +40,8 @@ public class KsiazkaService {
         Ksiazka ksiazka = repository.findById(idKsiazki)
                 .orElseThrow(() -> new KsiazkaNotFoundException(idKsiazki));
 
-        ksiazka.setTytul(nowaKsiazka.getTytul());
-        ksiazka.setAutor(nowaKsiazka.getAutor());
+        ksiazka.setTytul(duzaLitera(nowaKsiazka.getTytul()));
+        ksiazka.setAutor(duzaLitera(nowaKsiazka.getAutor()));
         ksiazka.setOpis(nowaKsiazka.getOpis());
         ksiazka.setOcena(nowaKsiazka.getOcena());
 
@@ -63,5 +65,15 @@ public class KsiazkaService {
                 .findByTytulContainingIgnoreCaseOrAutorContainingIgnoreCase(
                         fraza,
                         fraza);
+    }
+
+    // Zamiana pierwszej litery na dużą
+    private String duzaLitera(String tekst) {
+        if (tekst == null || tekst.isBlank()) {
+            return tekst;
+        }
+
+        return tekst.substring(0, 1).toUpperCase()
+                + tekst.substring(1).toLowerCase();
     }
 }
