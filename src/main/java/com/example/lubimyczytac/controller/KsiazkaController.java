@@ -10,6 +10,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/api/ksiazki")
 @CrossOrigin
+
 public class KsiazkaController {
 
     private final KsiazkaService service;
@@ -36,7 +37,7 @@ public class KsiazkaController {
         return service.dodajKsiazke(ksiazka);
     }
 
-    // Edytuj książkę
+    // Edytuj książkę po identyfikatorze książki: idKsiazki
     @PutMapping("/{idKsiazki}")
     public Ksiazka edytujKsiazke(
             @PathVariable Long idKsiazki,
@@ -45,7 +46,7 @@ public class KsiazkaController {
         return service.edytujKsiazke(idKsiazki, ksiazka);
     }
 
-    // Usuń książkę po identyfikatorze książki: idKsiazki 
+    // Usuń książkę po identyfikatorze książki: idKsiazki
     @DeleteMapping("/{idKsiazki}")
     public void usunKsiazke(@PathVariable Long idKsiazki) {
         service.usunKsiazke(idKsiazki);
