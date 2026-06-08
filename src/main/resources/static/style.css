@@ -1,66 +1,182 @@
-body {
-    font-family: Arial, sans-serif;
-    background: #f3f4f6;
+* {
     margin: 0;
-    padding: 20px;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", sans-serif;
+
+    background: linear-gradient(
+            135deg,
+            #60a5fa 0%,
+            #93c5fd 50%,
+            #dbeafe 100%
+    );
+
+    color: #1e293b;
+    padding: 40px 20px;
+    min-height: 100vh;
 }
 
 .kontener {
-    max-width: 900px;
-    margin: 0 auto;
-    background: white;
-    padding: 24px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 1100px;
+    margin: auto;
 }
 
-h1, h2 {
-    color: #333;
+h1 {
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 42px;
+    color: #0f172a;
+}
+
+section {
+    background: rgba(255,255,255,0.75);
+    backdrop-filter: blur(12px);
+
+    padding: 25px;
+    border-radius: 20px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+            0 10px 30px rgba(0,0,0,0.08);
+
+    border: 1px solid rgba(255,255,255,0.4);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #334155;
 }
 
 label {
     display: block;
-    margin-top: 10px;
-    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    font-weight: 600;
 }
 
-input, textarea {
+input,
+textarea {
     width: 100%;
-    padding: 8px;
-    margin-top: 4px;
-    box-sizing: border-box;
+    padding: 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+}
+
+input:focus,
+textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+
+    box-shadow:
+            0 0 0 4px rgba(37,99,235,0.15);
+
+    transform: scale(1.01);
 }
 
 textarea {
-    min-height: 80px;
+    min-height: 120px;
 }
 
 .przyciski {
-    margin-top: 15px;
+    margin-top: 20px;
 }
 
 button {
-    padding: 10px 14px;
-    margin-right: 8px;
     border: none;
-    background: #2563eb;
+    padding: 12px 18px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #1e40af, #60a5fa);
     color: white;
-    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
     cursor: pointer;
+    transition: all 0.3s ease;
+    margin-right: 10px;
 }
 
 button:hover {
-    background: #1d4ed8;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(37,99,235,0.3);
 }
 
-.ksiazka-karta{
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 12px;
-    margin-top: 12px;
-    background: #fafafa;
+.usun-btn {
+    background: linear-gradient(135deg, #991b1b 0%, #dc2626 50%, #ef4444 100%);
+}
+
+.usun-btn:hover {
+    box-shadow: 0 8px 15px rgba(220,38,38,0.3);
+}
+
+.sekcja_szukaj button {
+    margin-top: 15px;
+}
+
+.sekcja_lista {
+    margin-top: 30px;
+}
+
+#listaKsiazek {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.ksiazka-karta {
+    background: white;
+    border: none;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: 0.3s;
+}
+
+.ksiazka-karta button {
+    margin-top: 10px;
+}
+
+.ksiazka-karta:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
 }
 
 .ksiazka-karta h3 {
-    margin-top: 0;
+    color: #1e3a8a;
+    margin-bottom: 15px;
+}
+
+.ksiazka-karta p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.naglowek {
+    text-align: center;
+    margin-bottom: 30px;
+    background: linear-gradient(135deg,#2563eb,#3b82f6);
+    padding: 40px;
+    border-radius: 20px;
+    margin-bottom: 30px;
+    color: white;
+}
+
+.naglowek h1 {
+    font-size: 56px;
+    margin-bottom: 10px;
+    color: white;
+    letter-spacing: 1px;
+}
+
+.naglowek p {
+    color: rgba(255,255,255,0.9);
+    font-size: 18px;
+}
+
+input,
+textarea {
+    transition: all 0.25s ease;
 }

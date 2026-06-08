@@ -128,9 +128,12 @@ function wyswietlKsiazki(ksiazki) {
             <h3>${ksiazka.tytul}</h3>
             <p><strong>Autor:</strong> ${ksiazka.autor}</p>
             <p><strong>Opis:</strong> ${ksiazka.opis|| "-"}</p>
-            <p><strong>Ocena:</strong> ${ksiazka.ocena || "-"}</p>
+            <p><strong>Ocena:</strong>${"⭐".repeat(ksiazka.ocena || 0)}(${ksiazka.ocena || 0}/10)</p>
             <button onclick="edytujKsiazke(${ksiazka.idKsiazki})">Edytuj</button>
-            <button onclick="usunKsiazke(${ksiazka.idKsiazki})">Usuń</button>
+            <button class="usun-btn"
+            onclick="usunKsiazke(${ksiazka.idKsiazki})">
+            Usuń
+</button>
         `;
 
         listaKsiazek.appendChild(karta);
