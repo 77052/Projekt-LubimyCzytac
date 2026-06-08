@@ -50,11 +50,20 @@ public class KsiazkaController {
 
     // Edytuj książkę po identyfikatorze książki: idKsiazki
     @PutMapping("/{idKsiazki}")
-    public Ksiazka edytujKsiazke(
+    public ResponseEntity<?> edytujKsiazke(
             @PathVariable Long idKsiazki,
-            @Valid @RequestBody Ksiazka ksiazka) {
+            @Valid @RequestBody Ksiazka ksiazka,
+            BindingResult result) {
 
-        return service.edytujKsiazke(idKsiazki, ksiazka);
+        if (result.hasErrors()) {
+            return ResponseEntity
+                    .badRequest()
+                    .body(result.getFieldError().getDefaultMessage());
+        }
+
+        return ResponseEntity.ok(
+                service.edytujKsiazke(idKsiazki, ksiazka)
+        );
     }
 
     // Usuń książkę po identyfikatorze książki: idKsiazki
